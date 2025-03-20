@@ -36,6 +36,11 @@ function App() {
     setTodoInput(event.target.value);
   }
 
+  function deleteToDo(id) {
+    const deletedTodos = todos.filter(todo => todo.id !== id);
+    setTodos(deletedTodos);
+  }
+
   function completeToDo(id) {
     const updatedTodos = todos.map(todo => {
       if (todo.id === id) {
@@ -77,6 +82,7 @@ function App() {
                 <svg
                   className="x-button-icon"
                   fill="none"
+                  onClick={() => deleteToDo(todo.id)}
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
